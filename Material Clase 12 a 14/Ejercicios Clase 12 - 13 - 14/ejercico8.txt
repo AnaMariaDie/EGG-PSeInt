@@ -1,0 +1,43 @@
+//8.Crear una función llamada "Login", que recibe un nombre de usuario y una contraseña y que
+//   devuelve Verdadero si el nombre de usuario es "usuario1" y si la contraseña es "asdasd". 
+//   Además, la función calculara el número de intentos que se ha usado para loguearse, tenemos solo
+//   3 intentos, si nos quedamos sin intentos la función devolverá Falso.
+Funcion res <- login ( us, ct, i )
+	Definir res Como Logico
+	Si (us="usuario1" Y ct="asdasd" Y i=4) Entonces
+		res=Verdadero
+	Sino
+		Si (us="usuario1" Y ct="asdasd") O i>=3 Entonces
+			res=Falso
+		FinSi
+	Finsi
+Fin Funcion
+
+Algoritmo ejercicio8
+	Definir us, ct Como Caracter
+	Definir res Como Logico
+	Definir i, x Como Entero
+	Escribir "Ingrese usuario"
+	Leer us
+	Escribir "Ingrese contraseña" 
+	Leer ct
+	i=0
+	res=login(us, ct, i)
+	Para i<-0 Hasta 3 Con Paso 1 Hacer
+		Escribir "Resultado incorrecto" 
+		Escribir "Ingrese su usuario"
+		Leer us
+		Escribir "Ingrese su clave"
+		Leer ct
+		i=i+1
+		res=login(us, ct, i)
+		Si res=Verdadero
+			Escribir " Verdadero Ingreso Exitoso "
+			i=4
+		Sino
+			res=Falso
+			Escribir " Falso "
+			i=i+1
+		Finsi
+	FinPara
+FinAlgoritmo
